@@ -13,18 +13,15 @@ import com.example.popupsdksample.R
 import loymax.popup.sdk.services.PopUpService
 
 open class MainFragment : Fragment() {
-
     companion object {
         fun newInstance() = MainFragment()
     }
 
-    private var _popUpService: PopUpService = PopUpService("http://192.168.12.31:3000/")
     private lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-
+        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -42,23 +39,20 @@ open class MainFragment : Fragment() {
             popup.text = it
         })
 
-        val popupButton = view.findViewById<Button>(R.id.pop_up_button)
-        popupButton.setOnClickListener {
-            viewModel.getPopUp("123","12")
+        view.findViewById<Button>(R.id.pop_up_button).apply {
+            this.setOnClickListener {
+                viewModel.getPopUp("123", "12")
+            }
         }
 
         val popupConfirm = view.findViewById<TextView>(R.id.pop_up_confirm)
         viewModel.popUpConfirm.observe(this.viewLifecycleOwner, Observer {
             popupConfirm.text = it
         })
-
-        val confirmButton = view.findViewById<Button>(R.id.confirm_button)
-
-        confirmButton.setOnClickListener {
-            viewModel.viewPopUp()
+        view.findViewById<Button>(R.id.confirm_button).apply {
+            this.setOnClickListener {
+                viewModel.viewPopUp()
+            }
         }
-
-
     }
-
 }

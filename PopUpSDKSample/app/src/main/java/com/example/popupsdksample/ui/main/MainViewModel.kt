@@ -39,6 +39,7 @@ class MainViewModel : ViewModel() {
     }
 
     fun viewPopUp() {
+        popUpConfirm.value = "loading..."
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val result = _popUpService.viewPopUp(getConfirmModel())
