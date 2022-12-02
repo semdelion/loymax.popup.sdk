@@ -5,19 +5,10 @@
 * Kotlin 1.6.10
 * Gradle 7.5
 
-<a name="documentation-for-api-endpoints"></a>
-## Documentation for API Endpoints
-
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *PopupApi* | [**confirm**](docs/PopupApi.md#confirm) | **POST** popup/confirm | Confirm action popup
 *PopupApi* | [**popupClientIdGet**](docs/PopupApi.md#popupclientidget) | **GET** popup/{clientId} | Find popup by client_id
-
-
-<a name="documentation-for-authorization"></a>
-## Documentation for Authorization
-
-<a name="bearerAuth"></a>
 
 ## How to use
 * add settings.gradle
